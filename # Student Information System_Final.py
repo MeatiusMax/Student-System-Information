@@ -1,7 +1,7 @@
 # Student Insormation System
 import tkinter
 import csv
-
+import getpass
 #variables
 Student_Data = ['Id no.', 'name', 'Year', 'Gender', 'Course']
 student_database = 'student.csv'
@@ -152,19 +152,22 @@ def register():
             print("Registration Complete")
         else:
             print("Try again")
-
 def login():
     email=input("-------------------\nPlease Enter Email:")
-    password=input("---------------------\nPlease type Your Password:")
+    password=input("-------------------------------\nPlease Enter Password:")
     with open("Register.csv", mode="r")as f:
         reader=csv.reader(f,delimiter= ",")
         for row in reader:
             if row == [email,password]:
+                print("-----------------")
                 print("You are Logged in")
+                print("-----------------")
                 return True
-    print("Please Try Again")
-    return False
-
+    print("---------------------------------")
+    print("Username/Password not recognized")
+    print("--------------------------------")
+    exit()
+    
 while True:
     Register=input("Are you Already Registered?(Y/N):")
     if Register=="N":
@@ -186,7 +189,9 @@ while True:
         elif choice == '5':
             delete_student()
         elif choice == '6':
-            quit
+            exit()
         else:
+            print("---------------------------------------")
             print ("Something Went Wrong, Please Try Again")
-        
+            print("------------------------------------")
+            exit()
