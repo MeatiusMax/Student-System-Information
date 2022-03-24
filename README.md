@@ -1,2 +1,2 @@
-# Student-System-Information
-Simple Studen Information system
+# Student-Information-System
+Simple Student Information system
